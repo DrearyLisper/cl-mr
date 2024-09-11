@@ -1,8 +1,14 @@
-FROM alpine:latest
+FROM ubuntu:latest
+
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 
 WORKDIR /app
 
-RUN apk add --no-cache curl bash build-base ncurses-dev sbcl git
+RUN apt update
+
+RUN apt install -y curl bash build-essential ncurses-dev sbcl git
 
 RUN curl -L https://qlot.tech/installer | bash
 
