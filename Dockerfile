@@ -8,7 +8,7 @@ WORKDIR /app
 
 RUN apt update
 
-RUN apt install -y curl bash build-essential ncurses-dev sbcl git
+RUN apt install -y curl bash build-essential ncurses-dev sbcl git libev-dev
 
 RUN curl -L https://qlot.tech/installer | bash
 
